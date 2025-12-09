@@ -70,7 +70,8 @@ tokei kaso_seiseki.csv summ 0
 ```
 tokei kaso_seiseki.csv hist TestC 10
 ```
-ここで，op2 はビン数を指定する。
+ここで，op1 の header はヒストグラムを表示したい列のヘッダーを指定する。
+op2 はビン数を指定する。
 
 [出力]
 ```
@@ -91,7 +92,9 @@ tokei kaso_seiseki.csv hist TestC 10
 ```
 tokei kaso_seiseki.csv score 0 50 10
 ```
-ここで，op2 は標準化された値の平均，op2 は標準化された値の標準偏差を指定する。op2 を 50，op2 を 10 とすると偏差値を計算する。
+ここで，op1 は 0 を指定すると標準偏差，1 を指定すると不偏標準偏差を計算に用いる。
+op2 は標準化された値の平均，op3 は標準化された値の標準偏差を指定する。
+op2 を 50，op3 を 10 とすると偏差値を計算する。
 
 [出力]
 ```
@@ -113,6 +116,7 @@ tokei kaso_seiseki.csv score 0 50 10
 ```
 tokei kaso_seiseki.csv corr TestA TestB
 ```
+ここで，op1 および op2 の header は相関係数を求めたい列のヘッダーを指定する。
 
 [出力]
 ```
