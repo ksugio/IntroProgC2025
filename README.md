@@ -30,7 +30,7 @@ tokei [filename] [command] [op1] [op2] [op3] ...
 ```
 tokei kaso_seiseki.csv mean TestA
 ```
-ここで，op1 の header は平均を求めたい列のヘッダーを指定する。
+ここで，op1 の は平均を求めたい列のヘッダーを指定する。
 
 [出力]
 ```
@@ -41,7 +41,7 @@ Mean 60.270000
 ```
 tokei kaso_seiseki.csv var TestB 0
 ```
-ここで，op1 の header は分散を求めたい列のヘッダーを指定する。
+ここで，op1 は分散を求めたい列のヘッダーを指定する。
 op2 は 0 を指定すると標本分散，1 を指定すると不偏分散を計算する。
 
 [出力]
@@ -70,7 +70,7 @@ tokei kaso_seiseki.csv summ 0
 ```
 tokei kaso_seiseki.csv hist TestC 10
 ```
-ここで，op1 の header はヒストグラムを表示したい列のヘッダーを指定する。
+ここで，op1 はヒストグラムを表示したい列のヘッダーを指定する。
 op2 はビン数を指定する。
 
 [出力]
@@ -116,7 +116,7 @@ op2 を 50，op3 を 10 とすると偏差値を計算する。
 ```
 tokei kaso_seiseki.csv corr TestA TestB
 ```
-ここで，op1 および op2 の header は相関係数を求めたい列のヘッダーを指定する。
+ここで，op1 および op2 は相関係数を求めたい列のヘッダーを指定する。
 
 [出力]
 ```
