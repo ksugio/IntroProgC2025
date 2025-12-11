@@ -22,7 +22,7 @@ tokei [filename] [command] [op1] [op2] [op3] ...\n\
     std : calculate standard deviation [op1:header] [op2:unbias(0|1)]\n\
     summ : display summary [op1:unbias(0|1)]\n\
     hist : display histgram [op1:header] [op2:bins]\n\
-    score : display score [op1:unbias(0|1)] [op2:mu] [op3:sigma]\n\
+    score : display and save score [op1:unbias(0|1)] [op2:mu] [op3:sigma] {op4:filename}\n\
     corr : calculate pearson correlation [op1:header1] [op2:header2]\n\
     cmap : display pearson correlation map\n\
     regr : multiple regression analysis [op1:obj_header] [op2:feat_header1] [op3:feat_header2] ...\n\
@@ -44,6 +44,7 @@ int main(int argc, char* argv[])
         num = read_csv(argv[1], header, table, &ncol);
         if (num == 0) printf("Can't read %s.", argv[1]);
     }
+    printf("%d\n", argc);
     if (argc == 3 && strcmp(argv[2], "disp") == 0) {
         disp_table(num, ncol, header, table);
     }
@@ -87,9 +88,11 @@ int main(int argc, char* argv[])
         if (vid >= 0)
             histogram(num, table, vid, atoi(argv[4]));
     }
-    else if (argc == 6 && strcmp(argv[2], "score") == 0) {
+    else if (argc >= 6 && strcmp(argv[2], "score") == 0) {
         calc_score(num, ncol, table, score, atoi(argv[3]), atof(argv[4]), atof(argv[5]));
         disp_table(num, ncol, header, score);
+        if (argc == 7)
+            write_csv(argv[6], num, ncol, header, score);
     }
     else if (argc == 5 && strcmp(argv[2], "corr") == 0) {
         vid1 = search_vid(argv[3], header, ncol);

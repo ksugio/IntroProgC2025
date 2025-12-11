@@ -21,6 +21,7 @@ typedef struct _TABLE {
 
 /* プロトタイプ宣言 */
 int read_csv(char [], char **, TABLE [], int *);
+void write_csv(char [], int, int, char **, TABLE []);
 void disp_table(int, int, char **, TABLE []);
 int search_vid(char [], char **, int);
 double calc_mean(int, TABLE [], int);

@@ -21,7 +21,7 @@ tokei [filename] [command] [op1] [op2] [op3] ...
 - std : 標準偏差を計算する [op1:header] [op2:unbias(0|1)]
 - summ : 統計値のまとめを表示する [op1:unbias(0|1)]
 - hist : ヒストグラムを表示する [op1:header] [op2:bins]
-- score : 標準化したテーブルを表示する [op1:unbias(0|1)] [op2:mu] [op3:sigma]
+- score : 標準化したテーブルを表示・保存する [op1:unbias(0|1)] [op2:mu] [op3:sigma] {op4:filename}
 - corr : ピアソン相関係数を計算する [op1:header1] [op2:header2]
 - cmap : ピアソン相関係数マップを表示する
 - regr : 重回帰分析を行う [op1:obj_header] [op2:feat_header1] [op3:feat_header2] ...
@@ -88,13 +88,14 @@ op2 はビン数を指定する。
    79.0000
 ```
 
-### 標準化したテーブルを表示する場合
+### 標準化したテーブルを表示・保存する場合
 ```
-tokei kaso_seiseki.csv score 0 50 10
+tokei kaso_seiseki.csv score 0 50 10 kaso_score.csv
 ```
 ここで，op1 は 0 を指定すると標準偏差，1 を指定すると不偏標準偏差を計算に用いる。
 op2 は標準化された値の平均，op3 は標準化された値の標準偏差を指定する。
 op2 を 50，op3 を 10 とすると偏差値を計算する。
+op4 は保存するファイル名を指定する。op4 を指定しなければ保存されない。
 
 [出力]
 ```

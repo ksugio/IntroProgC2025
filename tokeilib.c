@@ -57,6 +57,31 @@ int read_csv(char filename[], char **header, TABLE table[], int *ncol) {
 }
 
 /**
+* @brief CSVファイルを書き出す関数
+* @param[in] filename ファイル名
+* @param[in] num 行数
+* @param[in] ncol 列数
+* @param[in] header 列名
+* @param[in] table TABLE構造体の配列
+*/
+void write_csv(char filename[], int num, int ncol, char **header, TABLE table[]) {
+    FILE *fp;
+    int i, j;
+    fp = fopen(filename, "w");
+    for (j = 0; j < ncol - 1; j++)
+        fprintf(fp, "%s,", header[j]);
+    fprintf(fp, "%s\n", header[j]);
+    for (i = 0; i < num; i++) {
+        fprintf(fp, "%s,", table[i].name);
+        for (j = 0; j < ncol - 2; j++) {
+            fprintf(fp, "%f,", table[i].vals[j]);
+        }
+        fprintf(fp, "%f\n", table[i].vals[j]);
+    }
+    fclose(fp);
+}
+
+/**
 * @brief テーブルを表示する関数
 * @param[in] num 行数
 * @param[in] ncol 列数
