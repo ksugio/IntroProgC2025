@@ -44,7 +44,6 @@ int main(int argc, char* argv[])
         num = read_csv(argv[1], header, table, &ncol);
         if (num == 0) printf("Can't read %s.", argv[1]);
     }
-    printf("%d\n", argc);
     if (argc == 3 && strcmp(argv[2], "disp") == 0) {
         disp_table(num, ncol, header, table);
     }
